@@ -131,9 +131,9 @@ class TagsModelTag extends JModelList
 		$tagId  = $this->getState('tag.id') ? : '';
 
 		$typesr = $this->getState('tag.typesr');
-		$orderByOption = $this->getState('list.ordering', 'c.core_title');
+		$orderByOption = "c.core_" . $this->state->params->get('all_tags_orderby', 'c.core_title');		
 		$includeChildren = $this->state->params->get('include_children', 0);
-		$orderDir = $this->getState('list.direction', 'ASC');
+		$orderDir = $this->state->params->get('all_tags_orderby_direction', 'ASC');
 		$matchAll = $this->getState('params')->get('return_any_or_all', 1);
 		$language = $this->getState('tag.language');
 		$stateFilter = $this->getState('tag.state');
